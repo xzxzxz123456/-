@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    console.log(document.cookie)
+    // 创建 没有 过期实际的 cookie ( 过期时间 回话事件  就是 关掉浏览器就没了)
+    document.cookie = 'name = "xz"'
+
+    // 创建有过期时间 的 cookie  // 时间 以0时区的 时间为准  所以  要减去 8 小时
+    document.cookie = 'age="18";expires=' + new Date('2017-06-15 7:39:00');
+</script>
