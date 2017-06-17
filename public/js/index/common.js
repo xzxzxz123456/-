@@ -19,7 +19,7 @@ define(['jquery','template','jqueryCookie'], function ($,template) {
 	}
 	$(".profile").find("img").attr("src",$.cookie( 'tc_avatar' ))
 	$(".profile").find("h4").html( $.cookie( 'tc_name' ) )
-	console.log( $.cookie() )
+
 
 	// 首页个人信息 用模板引擎渲染
 	var html = template.render(`<div class="avatar img-circle">
@@ -28,9 +28,5 @@ define(['jquery','template','jqueryCookie'], function ($,template) {
         <h4>{{tc_name}}</h4>`,$.cookie() )
 
 	$("#profile").html(html)
-
-
-	
-
 })
 
