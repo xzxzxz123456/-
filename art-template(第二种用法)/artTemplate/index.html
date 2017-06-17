@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
+<script src="./template-web.js"></script>
+<script>
+
+    
+    var render = template.compile(` 
+        <ul>
+        <li>{{name}}</li>
+        <li>{{age}}</li>
+        <li>{{sex}}</li>
+        </ul>`
+    )
+    var html = render({
+        name: 1,
+        age: 2,
+        sex: 1
+    })
+
+
+    // 简化版
+    var html1 = template.render(` 
+        <ul>
+        <li>{{name}}</li>
+        <li>{{age}}</li>
+        <li>{{sex}}</li>
+        </ul>`, {
+            name: 1,
+            age: 2,
+            sex: 1
+        })
+    console.log(html)
+    console.log(html1)
+
+</script>

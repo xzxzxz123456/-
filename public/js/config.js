@@ -1,4 +1,5 @@
-
+(function(){
+    
 require.config({
     baseUrl : '/public',
 
@@ -8,5 +9,8 @@ require.config({
         nprogress : 'assets/nprogress/nprogress',
         echarts : 'assets/echarts/echarts.min',
         jqueryCookie : 'assets/jquery-cookie/jquery.cookie',
+        template:'assets/artTemplate/template-web'
     }
 })
+
+})()
