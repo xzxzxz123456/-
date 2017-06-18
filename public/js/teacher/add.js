@@ -137,12 +137,11 @@ define(['jquery', 'template', 'form','datepicker','language'], function ($, temp
             success: function (data) {
                 console.log(data)
                 if (data.code == 200) {
-                    if (id) {
-                        alert("修改成功")
-                    } else {
-                        alert("添加成功")
-                    }
-
+                    // if (id) {
+                    //     alert("修改成功")
+                    // } else {
+                    //     alert("添加成功")
+                    // }
                     location.href = '/teacher/list'
                 }
                 

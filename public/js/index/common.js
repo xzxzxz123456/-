@@ -36,5 +36,18 @@ define(['jquery', 'template', 'nprogress', 'jqueryCookie'], function ($, templat
         <h4>{{tc_name}}</h4>`, $.cookie())
 
 	$("#profile").html(html)
+
+	//ajax 请求的时候  动画效果
+	$(document)
+		.ajaxStart(function () {
+			$('.loading').show()
+		})
+		.ajaxStop(function () {
+			setTimeout(function () {
+				$('.loading').hide()
+			}, 500)
+		})
+
+		
 })
 
