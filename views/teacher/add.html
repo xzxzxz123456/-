@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include '/views/common/style.html' ?>
-</head>
-<body>
     
+</head>
+
+<body>
+
     <!-- 侧边栏 -->
-  <?php include '/views/common/aside.html' ?>
+    <?php include '/views/common/aside.html' ?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
             <?php include '/views/common/header.html' ?>
             <div class="body teacher">
+                <!-- 挖坑 -->
                 <!-- 面包屑 -->
-                <ol class="breadcrumb">
+                <!--<ol class="breadcrumb">
                     <li><a href="javascript:;">讲师管理</a></li>
                     <li class="active">讲师添加</li>
                 </ol>
@@ -62,19 +66,84 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-7">
-                                <a href="javascript:;" class="btn btn-success btn-sm pull-right submit"> 添 加 </a>
+                                <input type="submit" class="btn btn-success btn-sm pull-right submit" value="添 加">
                             </div>                          
                         </div>
                     </form>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 
-     <?php include '/views/common/script.html' ?>
+    <?php include '/views/common/script.html' ?>
 </body>
+
 </html>
 
+
+
+
+<!--  模板 -->
+<script type="text/html" id="teacher-add-edit-tpl">
+
+    <ol class="breadcrumb">
+        <li><a href="javascript:;">讲师管理</a></li>
+        <li class="active">{{title}}</li>
+    </ol>
+    <div class="teacher-add">
+        <form action={{url}} class="form-horizontal col-md-offset-2">
+            <div class="form-group">
+                <label for="" class="col-md-3 control-label">姓名</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control input-sm teacherName" placeholder="讲师名称" name="tc_name" value={{tc_name}}>
+                </div>
+            </div>
+            {{if !isAdd}}
+            <input type="hidden" name="tc_id" value="{{tc_id}}"> {{/if}} {{if isAdd}}
+            <div class="form-group mima">
+                <label for="" class="col-md-3 control-label">密码</label>
+                <div class="col-md-4">
+                    <input type="password" class="form-control input-sm teacherPass" name="tc_pass">
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="form-group">
+                <label for="" class="col-md-3 control-label">入职时间</label>
+                <div class="col-md-4">
+                    <input type="text" data-provide="datepicker" data-date-language="zh-CN" data-date-format="yyyy-mm-dd" class="form-control input-sm teacherTime"
+                        id="tc_join_date" name="tc_join_date" value={{tc_join_date}}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-3 control-label">类型</label>
+                <div class="col-md-2">
+                    <select class="form-control input-sm teacherType" name="tc_type"> 
+                        <option value="1" {{ if tc_type == '1'}} selected {{ /if }} >讲师</option>
+                        <option value="0" {{ if tc_type == '0'}} selected {{ /if }} >管理员</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-3 control-label">性别</label>
+                <div class="col-md-4">
+                    <label class="radio-inline">
+                        <input type="radio"  {{ if tc_gender == '0'}} checked {{/if}}  name="tc_gender" class="radio" value="0"> 男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" {{ if tc_gender == '1'}} checked {{/if}}  name="tc_gender" class="radio" value="1"> 女
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-7">
+                    <input type="submit" class="btn btn-success btn-sm pull-right submit" value="{{ btnTxt }}">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</script>
 <script>
     require(['js/teacher/add'])
 </script>

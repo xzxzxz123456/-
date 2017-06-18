@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="dv" data-id=0>
+
+    </div>
+</body>
+
+</html>
+<script src="./jquery.min.js"></script>
+
+<script>
+    // .data()
+		// http://www.jquery123.com/data/
+		// 使用场景：如果要给当前元素添加一些小数据，此时，使用 data() 方法是最佳实践！！！
+
+		// 1 使用 data() 方法可以给当前的DOM对象绑定一些小数据
+		//   并且，存储是什么格式，将来取出来就是什么格式
+
+		// 2 这个方法不是DOM操作 ( 速度快 性能好 )
+		//   只要是引用了jQuery，页面加载的时候，jQuery就会遍历页面中的所有元素
+		//   将所有元素中的data-自定属性以键值对的形式存储到 jQuery的内存 中
+		// 	 所以，将来读取或者设置值，都是内存的操作，没有操作DOM对象
+
+		// 3 因为是内存操作，所以，重新设置data值以后，在页面结构中看不到 data-属性值的变化
+
+        
+        console.log(  $('.dv').data("id")  )
+        $( $('.dv').data("id",3) )
+        console.log(  $('.dv').data("id")  )
+        
+
+</script>
