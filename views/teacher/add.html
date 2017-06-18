@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include '/views/common/style.html' ?>
-    
+
 </head>
 
 <body>
@@ -95,7 +95,9 @@
             <div class="form-group">
                 <label for="" class="col-md-3 control-label">姓名</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control input-sm teacherName" placeholder="讲师名称" name="tc_name" value={{tc_name}}>
+                    <input type="text" class="form-control input-sm teacherName" placeholder="讲师名称" name="tc_name" value='{{tc_name}}'  
+                               data-describedby="nrName" data-description="text" data-required data-pattern='^[\u4e00-\u9fa5_a-zA-Z0-9]{2,16}$'>
+                               <span id='nrName'></span>
                 </div>
             </div>
             {{if !isAdd}}
@@ -103,7 +105,9 @@
             <div class="form-group mima">
                 <label for="" class="col-md-3 control-label">密码</label>
                 <div class="col-md-4">
-                    <input type="password" class="form-control input-sm teacherPass" name="tc_pass">
+                    <input type="password" class="form-control input-sm teacherPass" name="tc_pass" data-required data-pattern='^\d{2,5}$' data-describedby="nr"
+                        data-description="text">
+                    <span id='nr'></span>
                 </div>
             </div>
             {{/if}}
@@ -112,7 +116,11 @@
                 <label for="" class="col-md-3 control-label">入职时间</label>
                 <div class="col-md-4">
                     <input type="text" data-provide="datepicker" data-date-language="zh-CN" data-date-format="yyyy-mm-dd" class="form-control input-sm teacherTime"
-                        id="tc_join_date" name="tc_join_date" value={{tc_join_date}}>
+                        id="tc_join_date" name="tc_join_date" value='{{tc_join_date}}'
+                        data-describedby="nrTmer"
+                        data-description="text"
+                        data-required >
+                        <span id='nrTmer'></span>
                 </div>
             </div>
             <div class="form-group">
@@ -146,4 +154,5 @@
 </script>
 <script>
     require(['js/teacher/add'])
+
 </script>

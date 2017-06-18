@@ -1,4 +1,4 @@
-define(['jquery', 'template', 'form','datepicker','language'], function ($, template) {
+define(['jquery', 'template', 'form', 'datepicker', 'language', 'bootstrap', 'validate'], function ($, template) {
 
 
     //原始方式 比较繁琐
@@ -102,7 +102,7 @@ define(['jquery', 'template', 'form','datepicker','language'], function ($, temp
         $.ajax({
             url: '/api/teacher/edit?tc_id=' + id,
             type: "get",
-            success: function (data) { 
+            success: function (data) {
                 console.log(data)
                 data.result.title = '讲师修改'
                 data.result.url = '/api/teacher/update'
@@ -110,9 +110,10 @@ define(['jquery', 'template', 'form','datepicker','language'], function ($, temp
                 data.result.btnTxt = '更 新'
                 var html = template("teacher-add-edit-tpl", data.result)
                 $(".teacher").html(html)
+                // 异步 所以要重新绑定xia 
+                validate()
             }
         })
-
     }
 
     //添加
@@ -128,33 +129,56 @@ define(['jquery', 'template', 'form','datepicker','language'], function ($, temp
         $(".teacher").html(html)
     }
 
-    //请求数据
-    $(".teacher").on('submit', 'form', function () {
 
-        $(this).ajaxSubmit({
-            type: 'post',
-            dataType: 'json',
-            success: function (data) {
-                console.log(data)
-                if (data.code == 200) {
-                    // if (id) {
-                    //     alert("修改成功")
-                    // } else {
-                    //     alert("添加成功")
-                    // }
-                    location.href = '/teacher/list'
-                }
-                
-            }
-        })
-        return false;
-    })
 
 
     //表单验证函数
-    function validate(){
-        
+    validate()
+    function validate() {
+        $('form').validate({
+            onBlur: true,
+            onSubmit: true,
+            sendForm: false,
+            eachInvalidField: function () {
+                this.parent().addClass("has-error").removeClass("has-success")
+            },
+            eachValidField: function () {
+                this.parent().addClass("has-success").removeClass("has-error")
+            },
+            description: {
+                text: {
+                    required: "必填",
+                    pattern: "格式不对"
+                }
+            },
+            // 所有表单元素验证成功后执行回调里的函数
+            valid: function () {
+                //请求数据
+                $(".teacher").on('submit', 'form', function () {
+
+                    $(this).ajaxSubmit({
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                // if (id) {
+                                //     alert("修改成功")
+                                // } else {
+                                //     alert("添加成功")
+                                // }
+                                location.href = '/teacher/list'
+                            }
+
+                        }
+                    })
+                    return false;
+                })
+            }
+        })
+
     }
+
 
 
 
