@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // http 协议 : 浏览器与服务器之间的 通信协议
+
+        // http 协议是无序的   它不会记录(区分) 那个浏览器请求
+        //  例如  公交车司机不会 去记住 上车的乘客
+
+        // 但有时候 有要去区分 不用的用户 (账户登陆 只能登录自己的账号)
+
+        // 解决方案  状态保持机制
+
+        //  cookie  与  session  
+
+        // cookie  浏览器的一种机制
+        //  session 服务端的一种机制(基于cookie)
+
+        // 第一次 请求的时候 服务端会给你配 一个 PHPSESSID   于响应头中 返回浏览器
+        //  存在 浏览器的 cookie 中 
+        //  以后 每次 请求 都会 带着 这个 cookie   去请求  
+        //  服务端 就会看 你有没有这个 cookie['PHPSESSID'] 这样它就认识你了
+        //  队伍 cookie 的操作要 http  协议开打 能可以 因为 涉及到 ajax 请求了
+
+
+        // cookie  2种形式
+
+        //  1  会话cookie   浏览挂掉就没了
+        // $.cookie("name","value") 设置    
+        //  document.cookie = 'name = "value"'
+
+
+        // $.cookie("name")  读取
+        // document.cookie 
+
+
+        //  2  有 有效期的cookie 
+         //  document.cookie = 'name = "jack";expries=' + new Date('2001-12-11 12:12:12')  // 中国东八区 要减去8 
+
+         // $.cookie('name','value',{expires:7})  // 7天
+
+
+
+        //  删除cookie  
+        //  $.remove.cookie('name')
+
+
+        //session 存在与 服务器端 只有 服务器端才能操作 (浏览器端看不见)
+
+        //  seesion  用来保存 每个用户的信息  每一个用户都有属于自己的seesion
+        //  一般就是将自己的用户信息 存在seesion 中
+        
+
+
+        // seession   依赖与 cookie 在服务器端与浏览器端 传递
+
+
+
+    </script>
+</body>
+</html>

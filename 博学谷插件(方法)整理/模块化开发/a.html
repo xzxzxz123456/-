@@ -11,10 +11,10 @@
 </body>
 </html>
 <script src="./node_modules/requirejs/require.js"></script>
+<script src="./config.js"></script>
+
 <script>
-    
-    //引用模块
-    require(['a'],function(a){
-        console.log(a)
-    })
+    //引用模块( 可以引多个 )
+    require(['a','b'])
+    // require(['./11/a'])
 </script>

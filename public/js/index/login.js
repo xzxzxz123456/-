@@ -7,7 +7,7 @@ define(['jquery', 'jqueryCookie'], function ($) {
     $("#form").on('submit', function () {
         //表单序列化 来 获取 表单中的所有 val() 值    serialize()
         var vals = decodeURI($("#form").serialize())
-        console.log(vals)
+        // console.log(vals)
         $.ajax({
             url: '/api/login',
             type: 'post',

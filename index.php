@@ -1,4 +1,5 @@
 <?php
+//错误级别处理 不显示错误信息
 error_reporting(E_ALL & ~E_NOTICE);
 
 //  1  获取 url 参数

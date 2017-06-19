@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <input type="text" name="username" value=""> <br>
+        <input type="password" name="pass" value=""><br>
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>
+
+<script src="./jquery.min.js"></script>
+
+<script>
+    $('[type="submit"]').on("click",function(){
+        console.log( $('form').serialize() ) 
+        // 自动转化为 username=1111&pass=11  格式数据可以用于get 直接 拼接在url地址栏后面
+        return false;
+    })
+</script>

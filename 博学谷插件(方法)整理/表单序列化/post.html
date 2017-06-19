@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action='./11.php'>
+        <input type="text" name="username" value=""> <br>
+        <input type="password" name="pass" value=""><br>
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+
+</html>
+
+<script src="./jquery.min.js"></script>
+<script src="./node_modules/jquery-form/dist/jquery.form.min.js"></script>
+
+<script>
+    // 目的  让插件 帮你 获取表单里的数组 并且  转换好格式 然后帮你提交
+
+    // 插件 下载 插件jquery.form.js
+
+    //  第一步 因为是依赖与jquery 所以要引入jquery  注意要先引入jquery 
+
+    // 插件会 根据 你表单元素的name 属性 来序列化 要提交的数据 因为是 post
+    // 所以会自动序列化为 对象 会自动帮我们发送 数据请求
+
+    //  但是 在 请求里 我们 还可以 添加一个data  数据 来 发送一些 表单i没有的数据
+    //  提交时 会 连着表单里的数据 和我们 data 里的数据一起提交
+
+    // url  也可以 不指定 如果不指定 会去读取 form 表单的 ａｃｔｉｏｎ 属性 
+
+
+    //用法发   // 注意 是 form 表单去调用 
+    $("[type=\"submit\"]").on('click', function () {
+        $('form').ajaxSubmit({
+            type: "post",
+            success: function (data) {
+                console.log(data);
+            }
+
+        })
+        return false;
+    })
+
+</script>

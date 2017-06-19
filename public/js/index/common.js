@@ -17,6 +17,7 @@ define(['jquery', 'template', 'nprogress', 'jqueryCookie'], function ($, templat
 	if (location.pathname !== "/login" && !$.cookie('PHPSESSID')) {
 		location.href = '/login'
 	}
+	// 设置昵称与头像
 	$(".profile").find("img").attr("src", $.cookie('tc_avatar'))
 	$(".profile").find("h4").html($.cookie('tc_name'))
 
